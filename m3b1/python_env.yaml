@@ -1,0 +1,11 @@
+python: "3.11"
+build_dependencies:
+  - pip
+dependencies:
+  - torch
+  - transformers
+  - datasets
+  - peft
+  - trl
+  - accelerate
+  - mlflow

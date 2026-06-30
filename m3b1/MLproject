@@ -1,0 +1,43 @@
+name: brief6_1_finetuning
+
+python_env: python_env.yaml
+
+entry_points:
+
+  extract:
+    parameters:
+      db:     {type: string, default: support_it.db}
+      output: {type: string, default: extracted.jsonl}
+    command: "python get_from_database.py --db {db} --output {output}"
+
+  merge:
+    parameters:
+      extracted: {type: string, default: extracted.jsonl}
+      rajout:    {type: string, default: support_rajout.jsonl}
+      output:    {type: string, default: merged.jsonl}
+    command: "python get_from_file.py --extracted {extracted} --rajout {rajout} --output {output}"
+
+  clean:
+    parameters:
+      input:  {type: string, default: merged.jsonl}
+      output: {type: string, default: gold_data.jsonl}
+    command: "python gold_data.py --input {input} --output {output}"
+
+  train:
+    parameters:
+      data:   {type: string, default: gold_data.jsonl}
+      output: {type: string, default: ./it_assistant_finetuned}
+      epochs: {type: float,  default: 40}
+      lr:     {type: float,  default: 0.0005}
+    command: "python train.py --data {data} --output {output} --epochs {epochs} --lr {lr}"
+
+  main:
+    parameters:
+      db:         {type: string, default: support_it.db}
+      rajout:     {type: string, default: support_rajout.jsonl}
+      output_dir: {type: string, default: ./it_assistant_finetuned}
+    command: >
+      python get_from_database.py --db {db} --output extracted.jsonl &&
+      python get_from_file.py --extracted extracted.jsonl --rajout {rajout} --output merged.jsonl &&
+      python gold_data.py --input merged.jsonl --output gold_data.jsonl &&
+      python train.py --data gold_data.jsonl --output {output_dir}
