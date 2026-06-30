@@ -166,4 +166,4 @@ Statistiques imprimées en sortie : `total`, `empties`, `too_short`,
 
 ---
 
-*Brief 6.1 — Cisia Module 3 — Fabien Pelloux — ATOS group - O&T / aCTO squad.*
+*Brief °6.3.1 (=6ème Brief 'total' du 3ème module N° 1) — Cisia Module 3 — Fabien Pelloux — ATOS group - O&T / aCTO squad.*
