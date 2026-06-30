@@ -1,1 +1,25 @@
+| Étape | Script | Entrée | Sortie | Cellule clé |
+|---|---|---|---|---|
+| 1 | `get_from_database.py` | `support_it.db` | `extracted.jsonl` | `!{sys.executable} get_from_database.py …` |
+| 2 | `get_from_file.py` | `extracted.jsonl` + `support_rajout.jsonl` | `merged.jsonl` | Cellule 2.2 |
+| 3 | `gold_data.py` | `merged.jsonl` | `gold_data.jsonl` | Cellule 3.2 |
+| 5 | `train.py` | `gold_data.jsonl` | `./it_assistant_finetuned/` | Cellule 5.4 |
+
+----
+
+#	Livrable	Rôle	Lien
+1	get_from_database.py	Extraction SQLite → JSONL (extracted.jsonl)	get_from_database.py
+
+2	get_from_file.py	Fusion extracted.jsonl + support_rajout.jsonl → merged.jsonl	get_from_file.py
+
+3	gold_data.py	Nettoyage / déduplication → gold_data.jsonl	gold_data.py
+
+4	demo_finetuning.ipynb	Notebook commenté (LoraConfig, SFTConfig, SFTTrainer) — 29 cellules	demo_finetuning.ipynb
+
+5	train.py	Script de fine-tuning exécutable (SmolLM2-135M + LoRA)	train.py
+
+6	README.md	Documentation complète + Mermaid + justifications	README.md
+
+7	MLproject (bonus)	Pipeline MLflow (5 entry_points : main, extract, merge, clean, train)	MLproject
+
 
