@@ -1,9 +1,10 @@
 # Fine-tuning LoRA d'un assistant IT support 
 ## Cisia - Module °3 > Brief 1 (de 6)  
 
-> **Concevoir et iMplémenter une Solution d'IA**
-> Auteur : **Fabien Pelloux** — ATOS group — C.L. Architect
-> Formation Cisia — Module 3 — Brief 1
+> **Concevoir et implémenter une Solution d'IA**
+> > Auteur : **Fabien Pelloux**
+> > > ATOS group — C.L. Architect
+> > > > Formation Cisia — Module 3 — Brief 1
 
 ---
 
