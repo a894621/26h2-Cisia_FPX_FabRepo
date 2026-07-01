@@ -1,5 +1,4 @@
 services:
-
   extract:
     build:
       context: .
@@ -25,3 +24,8 @@ services:
         "--data",
         "gold_data.jsonl"
       ]
+      
+    mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports:
+      - "5000:5000"
