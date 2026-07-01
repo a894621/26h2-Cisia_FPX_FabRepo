@@ -1,0 +1,27 @@
+services:
+
+  extract:
+    build:
+      context: .
+      dockerfile: Dockerfile.extract
+    volumes:
+      - .:/app
+    command:
+      [
+        "--db",
+        "data/support_it.db",
+        "--output",
+        "extracted.jsonl"
+      ]
+
+  train:
+    build:
+      context: .
+      dockerfile: Dockerfile.train
+    volumes:
+      - .:/app
+    command:
+      [
+        "--data",
+        "gold_data.jsonl"
+      ]
