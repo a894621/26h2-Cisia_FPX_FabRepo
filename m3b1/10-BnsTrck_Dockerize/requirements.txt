@@ -1,0 +1,9 @@
+# pour script LoRA
+torch
+transformers
+datasets
+peft
+trl
+accelerate
+sentencepiece
+protobuf
