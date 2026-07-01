@@ -1,0 +1,6 @@
+{
+  "peft_type":"LORA",
+  "task_type":"CAUSAL_LM",
+  "r":16,
+  "lora_alpha":32
+}
