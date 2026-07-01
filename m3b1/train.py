@@ -43,6 +43,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import LoraConfig, TaskType
 from trl import SFTTrainer, SFTConfig
 
+# pour création du ZIP (post-etape 6)
+import shutil
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
@@ -189,9 +192,18 @@ def main() -> None:
 
     # ---------- 6. Sauvegarde ----------
     args.output.mkdir(parents=True, exist_ok=True)
+    # Sauvegarde de l'adapter LoRA + tokenizer
     trainer.save_model(str(args.output))
     tokenizer.save_pretrained(str(args.output))
+
     log.info("Modèle + tokenizer sauvegardés dans %s", args.output)
+    # Création d'une archive ZIP pour téléchargement
+    zip_path = shutil.make_archive(
+    base_name=str(args.output),
+    format="zip",
+    root_dir=str(args.output)
+    )
+    log.info("Archive ZIP créée : %s", zip_path)
 
     # ---------- 7. Inférence APRÈS fine-tuning ----------
     log.info("=== Inférence APRÈS fine-tuning ===")
