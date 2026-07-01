@@ -156,7 +156,7 @@ Statistiques imprimées en sortie : `total`, `empties`, `too_short`,
 
 ---
 
-## 9. Posture qualité
+## 9. Qualité (Posture)
 
 * Documentation des libs(librairies) utilisées : `sqlite3`, `datasets`, `peft`, `trl`.
 * Chaque script porte un docstring d'en-tête (rôle, entrées, sorties).
